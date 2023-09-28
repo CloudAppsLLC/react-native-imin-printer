@@ -1,3 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.iminprinter">
+    package="com.iminprinter">
+
+    <queries>
+        <package android:name="com.neo.printer.sdk" />
+        <intent>
+            <action
+                android:name="com.neo.printer.sdk.core.ApiAdapterManager.NeoPrinterService" />
+        </intent>
+    </queries>
 </manifest>
