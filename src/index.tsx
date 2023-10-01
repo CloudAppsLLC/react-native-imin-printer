@@ -9,14 +9,18 @@ const LINKING_ERROR =
 const IminPrinter = NativeModules.IminPrinter
   ? NativeModules.IminPrinter
   : new Proxy(
-      {},
-      {
-        get() {
-          throw new Error(LINKING_ERROR);
-        },
-      }
-    );
+    {},
+    {
+      get() {
+        throw new Error(LINKING_ERROR);
+      },
+    }
+  );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return IminPrinter.multiply(a, b);
+export function initPrinter(): Promise<boolean> {
+  return IminPrinter.initPrinter();
+}
+
+export function printSelfTestPage(): Promise<boolean> {
+  return IminPrinter.printSelfTestPage();
 }
